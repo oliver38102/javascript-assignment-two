@@ -9,35 +9,35 @@
 // INSIGHT: We'll be storing the item entires in the
 // tbody. Storing this HTMLElement will give us better
 // access to add new items.
-
+var tbody = document.querySelector('tbody')
 
 
 // Step 2 - Select and store the item template HTML Element.
 // INSIGHT: HTML templates are handy for keeping your
 // HTML out of your JavaScript. This makes portability easier.
-
+var template = document.querySelector('#itemTemplate')
 
 
 // Step 3 - Select and store the following HTML Elements:
 // INSIGHT: This form will give the user the ability to
 // provide information about a new to do item.
 // Step 3a - The Item Name field
-
+ var itemName = document.querySelector('[name="itemName"]')
 
 // Step 3b - The Due Date field
-
+var dueDate = document.querySelector('[name="dueDate"]')
 
 // Step 3c - The 'Create New Item' button for adding a new item
 // INSIGHT: We'll listen to the click event on this
 // button. That should tell us the user is ready to
 // add the information to a new item.
 
-
+var createItemButton = document.querySelector('#addNewItem')
 
 // Step 4 - Add a click event listener to the HTML Element
 // you stored in Step 3c (should've been the 'Create New Item')
 // button.
-
+createItemButtom.addEventListener("click", function(){
   // Step 4a - Check if item name is blank
 
     // Step 4b - Alert the user they need to enter a name
@@ -82,8 +82,7 @@
   // INSIGHT: We're prepending as we want new items to go to the
   // top. If you want them to be in reverse, then you will need
   // to append them instead.
-
-
+})
 
 
 // Step 5 - Create a new function called 'removeItem'. You will need
