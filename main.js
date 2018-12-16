@@ -32,56 +32,73 @@ var dueDate = document.querySelector('[name="dueDate"]')
 // button. That should tell us the user is ready to
 // add the information to a new item.
 
-var createItemButton = document.querySelector('#addNewItem')
+var createItemButton = document.getElementById('addNewItem')
 
 // Step 4 - Add a click event listener to the HTML Element
 // you stored in Step 3c (should've been the 'Create New Item')
 // button.
-createItemButtom.addEventListener("click", function(){
+createItemButton.addEventListener("click", function(){
   // Step 4a - Check if item name is blank
-
+  if(document.forms["itemName"].value.length == 0){
     // Step 4b - Alert the user they need to enter a name
-
+    alert("Enter a name!")
 
     // Step 4c - Return false to exit the event listener
-
-
-
+    return false;
+  }
   // Step 4d - Uncomment the next line to store the template content:
-  // let content = itemTemplate.content;
+ let content = itemTemplate.content;
 
   // Step 4e - Uncomment the next line to import the template content
   // into a new node:
-  // let newItemRow = document.importNode(content, true);
+  let newItemRow = document.importNode(content, true);
 
   // Step 4f - Using DOM walking, access the item entry cell
   // and store the current item name value
 
+  var itemValue = document.forms["itemName"].value
 
   // Step 4f - Using DOM walking, access the item due date cell
   // and store the current due date value
 
+  var dueDateValue = document.forms["dueDate"].value
 
   // Step 4g - Using DOM walking, access the item delete button
   // and make the onclick property equal to a function definition
   // named removeItem
-
+  var itemDelete = document.querySelector(".itemDelete")
+  itemDelete.setAttribute('onclick','removeItem()')
 
   // Step 4h- Using DOM walking, access the item edit button
   // and make the onclick property equal to a function definition
   // named editItem
-
+  var editItem = document.querySelector("item-delete")
+  editItem.setAttribute('onclick','editItem()')
 
   // Step 4i - Reset the item name field value to nothing
-
-
+  var form = document.querySelector('.newItemForm')
+  form.reset()
   // Step 4j - Reset the due date field value to nothing
-
+  //both fields reset
 
   // Step 4k - Prepend the new item row to the to do items list
   // INSIGHT: We're prepending as we want new items to go to the
   // top. If you want them to be in reverse, then you will need
   // to append them instead.
+
+  var row = tbody.insertRow();
+
+  var td1 = document.createElement('td')
+  var td2 = document.createElement('td')
+  var td3 = document.createElement('td')
+
+  row.appendChild(td1)
+  row.appendChild(td2)
+  row.appendChild(td3)
+
+  td1.textContent = `${itemValue}`
+  td2.textContent = `${dueDateValue}`
+  td3.textContent = ``
 })
 
 
