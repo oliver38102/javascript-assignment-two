@@ -113,7 +113,7 @@ function removeItem(event){
 
   var tbody = document.querySelector('tbody')
 
-  var firstTr = body.closest('tr')
+  var firstTr = tbody.closest('tr')
 
   firstTr.remove()
 }
@@ -127,7 +127,9 @@ function editItem(event){
   // ancestors and children of the DOM. We can use methods like
   // .closest() and .querySelector() to do this efficiently.
   // Store the result in a variable
+  var tbody = document.querySelector('tbody')
 
+  var firstTr = tbody.closest('tr')
 
   // Step 6b - Using the .setAttribute() method, set the attribute
   // 'contenteditable' to true
