@@ -127,9 +127,9 @@ function editItem(event){
   // ancestors and children of the DOM. We can use methods like
   // .closest() and .querySelector() to do this efficiently.
   // Store the result in a variable
-  var tbody = document.querySelector('tbody')
+  var tbody = document.querySelector('tr :first-of-type')
 
-  var firstTr = tbody.closest('tr')
+  var firstTd = tbody.closest('td')
 
   // Step 6b - Using the .setAttribute() method, set the attribute
   // 'contenteditable' to true
@@ -138,15 +138,19 @@ function editItem(event){
   // text edited inline. This is a convenient feature that is utilized
   // by many online WYSIWYG editors like TinyMCE and CKEditor.
 
+  firstTd.setAttribute("contenteditable", true)
 
   // Step 6c - Trigger focus on the element
-
+  firstTd.focus()
 
   // Step 6d - Create an eventlistener on the blur event
-
+  firstTd.addEventListener("blur", function(){
     // Step 6e - Remove the attribute 'contenteditable'
     // INSIGHT: .addAttribute() and .removeAttribute() add
     // and remove attributes applied to an HTML Element.
+    firstTd.setAttribute("contenteditable", false)
+
+  })
 }
 
 
