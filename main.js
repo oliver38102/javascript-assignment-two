@@ -111,13 +111,15 @@ function removeItem(event){
   // tree and attempt to find the closest ancestor that matches the
   // passed selector.
 
-  var removeItem = document.querySelector('tbody')
+  var tbody = document.querySelector('tbody')
 
-  removeItem.closest('tr')
+  var firstTr = body.closest('tr')
+
+  firstTr.remove()
 }
 // Step 6 - Create a new function called 'editItem'. You will need
 // to capture the event in the parameter.
-
+function editItem(event){
   // Step 6a - Using DOM walking:
   // First find the closest tr tag.
   // Next, find an item entry that is a child of the tr tag.
@@ -143,7 +145,7 @@ function removeItem(event){
     // Step 6e - Remove the attribute 'contenteditable'
     // INSIGHT: .addAttribute() and .removeAttribute() add
     // and remove attributes applied to an HTML Element.
-
+}
 
 
 
