@@ -104,16 +104,17 @@ createItemButton.addEventListener("click", function(){
 
 // Step 5 - Create a new function called 'removeItem'. You will need
 // to capture the event in the parameter.
-
+function removeItem(event){
   // Step 5a - Access the closest parent tr HTML element
   // and remove it
   // INSIGHT: .closest() is a handy method that will move up the DOM
   // tree and attempt to find the closest ancestor that matches the
   // passed selector.
 
+  var removeItem = document.querySelector('tbody')
 
-
-
+  removeItem.closest('tr')
+}
 // Step 6 - Create a new function called 'editItem'. You will need
 // to capture the event in the parameter.
 
